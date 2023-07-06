@@ -16,7 +16,8 @@ timer = None
 
 def reset():
     global repeat, check
-    window.after_cancel(timer)
+    if timer:
+        window.after_cancel(timer)
     repeat = 1
     canvas.itemconfig(time, text=f"00:00")
     title_label.config(text="Timer", fg=GREEN)
